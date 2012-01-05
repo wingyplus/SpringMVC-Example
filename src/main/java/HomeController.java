@@ -10,6 +10,6 @@ public class HomeController {
     @RequestMapping(value="/")
     public String home() {
     	System.out.println("HomeController: Passing through..." + new Date());
-    	return "WEB-INF/views/home.jsp";
+    	return "home";
     }
 }
