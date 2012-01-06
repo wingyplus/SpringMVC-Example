@@ -1,4 +1,4 @@
-package xyz.sample.baremvc;
+package xyz.sample.baremvc.home;
 
 import java.util.Date;
 import java.util.Comparator;
@@ -39,5 +39,4 @@ public class HomeController {
         // bind view 'compareResult'
         return "compareResult";
     }
-
 }
