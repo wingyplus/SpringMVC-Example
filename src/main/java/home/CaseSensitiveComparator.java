@@ -1,4 +1,4 @@
-package xyz.sample.baremvc;
+package xyz.sample.baremvc.home;
 
 import java.util.Comparator;
 import org.springframework.stereotype.Service;

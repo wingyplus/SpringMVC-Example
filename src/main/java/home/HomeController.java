@@ -1,4 +1,4 @@
-package xyz.sample.baremvc;
+package xyz.sample.baremvc.home;
 
 import java.util.Date;
 import java.util.Comparator;
@@ -39,37 +39,4 @@ public class HomeController {
         // bind view 'compareResult'
         return "compareResult";
     }
-
-	@RequestMapping(value = "/mapping/path")
-	public @ResponseBody String byPath() {
-		return "Mapping by Path";
-	}
-	
-	@RequestMapping(value = "/mapping/method", method = RequestMethod.GET)
-	public @ResponseBody String byParameterAll() {
-		return "Mapping by Method All";
-	}
-	
-	// mapping parameter name foo
-	@RequestMapping(value = "/mapping/parameter", method = RequestMethod.GET, params = "foo")
-	public @ResponseBody String byParameter() {
-		return "Mapping by Parameter foo";
-	}
-	
-	@RequestMapping(value = "/mapping/parameter", method = RequestMethod.GET, params = "!foo")
-	public @ResponseBody String byParameterNegation() {
-		return "Mapping by Parameter (all parameter not foo)";
-	}
-	
-	
-	@RequestMapping(value = "/mapping/consumes", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody String byConsumes(@RequestBody JavaBean javaBean) {
-		return "Mapping By path + method + consumable media type (JavaBean'" + javaBean + "')";
-	}
-	
-	@RequestMapping(value = "/mapping/produces", method = RequestMethod.GET, produces = "application/json")
-	public @ResponseBody JavaBean byProduces() {
-		return new JavaBean();
-	}
-	
 }

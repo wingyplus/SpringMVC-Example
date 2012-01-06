@@ -1,4 +1,4 @@
-package xyz.sample.baremvc;
+package xyz.sample.baremvc.mapping;
 
 public class JavaBean {
 	private String foo = "bar";
