@@ -24,6 +24,53 @@
 			}
 			
 		</style>
+		<script type="text/javascript" src="<c:url value="/resources/jquery-1.7.1.min.js" />" ></script>
+		<script>
+			MvcUtil = {};
+			MvcUtil.showSuccessResponse = function (text, element) {
+				MvcUtil.showResponse("success", text, element);
+			};
+			MvcUtil.showErrorResponse = function showErrorResponse(text, element) {
+				MvcUtil.showResponse("error", text, element);
+			};
+			MvcUtil.showResponse = function(type, text, element) {
+				var responseElementId = element.attr("id") + "Response";
+				var responseElement = $("#" + responseElementId);
+				if (responseElement.length == 0) {
+					responseElement = $('<span id="' + responseElementId + '" class="' + type + '" style="display:none">' + text + '</span>').insertAfter(element);
+				} else {
+					responseElement.replaceWith('<span id="' + responseElementId + '" class="' + type + '" style="display:none">' + text + '</span>');
+					responseElement = $("#" + responseElementId);
+				}
+				responseElement.fadeIn("slow");
+			};
+			MvcUtil.xmlencode = function(xml) {
+				//for IE 
+				var text;
+				if (window.ActiveXObject) {
+				    text = xml.xml;
+				 }
+				// for Mozilla, Firefox, Opera, etc.
+				else {
+				   text = (new XMLSerializer()).serializeToString(xml);
+				}			
+				    return text.replace(/\&/g,'&'+'amp;').replace(/</g,'&'+'lt;')
+			        .replace(/>/g,'&'+'gt;').replace(/\'/g,'&'+'apos;').replace(/\"/g,'&'+'quot;');
+			};
+		</script>
+		<script type="text/javascript">
+			$('document').ready(function() {
+				$("form.readJsonForm").submit(function() {
+						var form = $(this);
+						var button = form.children(":first");
+						var data = form.hasClass("invalid") ?
+								"{ \"foo\": \"bar\" }" : 
+								"{ \"foo\": \"bar\", \"fruit\": \"apple\" }";
+						$.ajax({ type: "POST", url: form.attr("action"), data: data, contentType: "application/json", dataType: "text", success: function(text) { MvcUtil.showSuccessResponse(text, button); }, error: function(xhr) { MvcUtil.showErrorResponse(xhr.responseText, button); }});
+						return false;
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<div id="echo">
