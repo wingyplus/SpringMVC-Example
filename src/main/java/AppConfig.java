@@ -1,4 +1,4 @@
-package xyz.simple.baremvc;
+package xyz.sample.baremvc;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

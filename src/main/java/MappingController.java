@@ -29,16 +29,18 @@ public class MappingController {
 		return "Mapping by Parameter foo";
 	}
 	
+	// mapping parameter not foo (!foo)
 	@RequestMapping(value = "/parameter", method = RequestMethod.GET, params = "!foo")
 	public @ResponseBody String byParameterNegation() {
 		return "Mapping by Parameter (all parameter not foo)";
 	}
 	
 	@RequestMapping(value = "/consumes", method = RequestMethod.POST, consumes = "application/json")
-	public @ResponseBody String byConsumes(@RequestBody JavaBean javaBean) {
-		return "Mapping By path + method + consumable media type (JavaBean '" + javaBean + "')";
-	}
+    public @ResponseBody String byConsumes(@RequestBody JavaBean javaBean) {
+        return "Mapped by path + method + consumable media type (javaBean '" + javaBean + "')";
+    }
 	
+	// mapping by produce to json format
 	@RequestMapping(value = "/produces", method = RequestMethod.GET, produces = "application/json")
 	public @ResponseBody JavaBean byProduces() {
 		return new JavaBean();
