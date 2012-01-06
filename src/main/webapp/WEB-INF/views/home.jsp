@@ -33,7 +33,7 @@
 			<a id="byMethod" href="<c:url value="/mapping/method?test=0" />">GET Controller say (by method)</a><br />
 			<form id="byConsumes" action="<c:url value="/mapping/consumes" />" method="POST">
 				<input id="byConsumesSubmit" type="submit" value="By Consumes" />
-			</form><br />
+			</form>
 			<a id="byProduces" href="<c:url value="/mapping/produces" />">POST Produces say</a>
 		</div>
 	</body>
