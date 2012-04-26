@@ -34,9 +34,9 @@ public class MappingController {
 	}
 	
 	@RequestMapping(value = "/consumes", method = RequestMethod.POST, consumes = "application/json")
-    public @ResponseBody String byConsumes(@RequestBody JavaBean javaBean) {
-        return "Mapped by path + method + consumable media type (javaBean '" + javaBean + "')";
-    }
+    	public @ResponseBody String byConsumes(@RequestBody JavaBean javaBean) {
+        	return "Mapped by path + method + consumable media type (javaBean '" + javaBean + "')";
+    	}
 	
 	// mapping by produce to json format
 	@RequestMapping(value = "/produces", method = RequestMethod.GET, produces = "application/json")
